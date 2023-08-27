@@ -1,5 +1,4 @@
 pipeline {
-    }
     agent {
         docker {
             image 'sebastine/maven-docker-agent:v1'
@@ -27,11 +26,11 @@ pipeline {
             }
             steps {
                 withCredentials([string(credentialsId: 'sonarqube-token', variable: 'SONAR_TOKEN')]) {
-                   withSonarQubeEnv('SonarQube') {
-                    sh 'cd java-maven-sonar-argocd-helm-k8s/spring-boot-app && mvn sonar:sonar -Dsonar.login=$SONAR_TOKEN -Dsonar.host.url=${SONAR_URL}'
+                    withSonarQubeEnv('SonarQube') {
+                        sh 'cd java-maven-sonar-argocd-helm-k8s/spring-boot-app && mvn sonar:sonar -Dsonar.login=$SONAR_TOKEN -Dsonar.host.url=${SONAR_URL}'
+                    }
                 }
             }
-          }
         }
 
         stage('Quality Gate') {
@@ -81,16 +80,15 @@ pipeline {
     post {
         always {
             echo 'I will always say Hello again!'
-                    def colorMap = [
-                        SUCCESS: 'good',    // Green
-                        FAILURE: 'danger',  // Red
-                        UNSTABLE: 'warning' // Yellow (you can add more statuses as needed)
-                    ]
-                    def buildResult = currentBuild.currentResult
-                    def color = colorMap[buildResult] ?: 'warning'
-                    slackSend channel: 'cybergoat', color: color, message: "*${buildResult}:* Job ${env.JOB_NAME} build ${env.BUILD_NUMBER} \n More info at: ${env.BUILD_URL}"
-                }
-            }
+            def colorMap = [
+                SUCCESS: 'good',    // Green
+                FAILURE: 'danger',  // Red
+                UNSTABLE: 'warning' // Yellow (you can add more statuses as needed)
+            ]
+            def buildResult = currentBuild.currentResult
+            def color = colorMap[buildResult] ?: 'warning'
+            slackSend channel: 'cybergoat', color: color, message: "*${buildResult}:* Job ${env.JOB_NAME} build ${env.BUILD_NUMBER} \n More info at: ${env.BUILD_URL}"
         }
     }
 }
+
