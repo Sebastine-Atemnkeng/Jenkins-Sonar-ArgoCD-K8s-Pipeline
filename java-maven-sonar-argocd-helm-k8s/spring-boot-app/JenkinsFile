@@ -29,6 +29,12 @@ pipeline {
         }
       }
     }
+    stage('Quality Gate') {
+      steps {
+          waitForQualityGate abortPipeline: true
+
+        }
+    }
     stage('Build and Push Docker Image') {
       environment {
         DOCKER_IMAGE = "sebastine/ultimate-cicd:${BUILD_NUMBER}"
