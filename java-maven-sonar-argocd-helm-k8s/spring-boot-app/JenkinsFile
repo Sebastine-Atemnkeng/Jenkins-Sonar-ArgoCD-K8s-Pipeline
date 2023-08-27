@@ -38,10 +38,18 @@ pipeline {
             }
         }
         stage('Build and Push Docker Image') {
-            // ... (your existing Docker image build and push steps)
+            steps {
+                script {
+                    // Build and push Docker image steps
+                }
+            }
         }
         stage('Update Deployment File') {
-            // ... (your existing deployment file update steps)
+            steps {
+                script {
+                    // Update deployment file steps
+                }
+            }
         }
     }
     post {
