@@ -1,4 +1,15 @@
 pipeline {
+
+    environment {
+        COLOR_MAP = [
+            SUCCESS: 'good', // Green
+            FAILURE: 'danger', // Red
+            UNSTABLE: 'warning', // Yellow
+            ABORTED: 'warning', // Yellow
+            NOT_BUILT: 'warning', // Yellow
+        ]
+    }
+
     agent {
         docker {
             image 'sebastine/maven-docker-agent:v1'
