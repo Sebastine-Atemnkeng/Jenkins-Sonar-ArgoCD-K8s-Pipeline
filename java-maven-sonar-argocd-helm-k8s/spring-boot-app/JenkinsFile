@@ -5,33 +5,40 @@ pipeline {
             args '--user root -v /var/run/docker.sock:/var/run/docker.sock'
         }
     }
+
     stages {
         stage('Checkout') {
             steps {
                 sh 'echo passed'
             }
         }
+
         stage('Build and Test') {
             steps {
                 sh 'ls -ltr'
                 sh 'cd java-maven-sonar-argocd-helm-k8s/spring-boot-app && mvn clean package'
             }
         }
+
         stage('Static Code Analysis') {
             environment {
                 SONAR_URL = "http://192.168.2.14:9000"
             }
             steps {
                 withCredentials([string(credentialsId: 'sonarqube-token', variable: 'SONAR_TOKEN')]) {
+                   withSonarQubeEnv('SonarQube') {
                     sh 'cd java-maven-sonar-argocd-helm-k8s/spring-boot-app && mvn sonar:sonar -Dsonar.login=$SONAR_TOKEN -Dsonar.host.url=${SONAR_URL}'
                 }
             }
+          }
         }
+
         stage('Quality Gate') {
             steps {
                 waitForQualityGate abortPipeline: true
             }
         }
+
         stage('Build and Push Docker Image') {
             environment {
                 DOCKER_IMAGE = "sebastine/ultimate-cicd:${BUILD_NUMBER}"
@@ -47,6 +54,7 @@ pipeline {
                 }
             }
         }
+
         stage('Update Deployment File') {
             environment {
                 GIT_REPO_NAME = "Jenkins-Sonar-ArgoCD-K8s-Pipeline"
@@ -67,6 +75,7 @@ pipeline {
             }
         }
     }
+
     post {
         always {
             echo 'I will always say Hello again!'
