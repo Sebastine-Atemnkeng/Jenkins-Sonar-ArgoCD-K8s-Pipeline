@@ -21,13 +21,19 @@ pipeline {
     }
     stage('Static Code Analysis') {
       environment {
-        SONAR_URL = "http://192.168.2.14.83:9000"
+        SONAR_URL = "http://192.168.2.14:9000"
       }
       steps {
         withCredentials([string(credentialsId: 'sonarqube-token', variable: 'SONAR_TOKEN')]) {
           sh 'cd java-maven-sonar-argocd-helm-k8s/spring-boot-app && mvn sonar:sonar -Dsonar.login=$SONAR_TOKEN -Dsonar.host.url=${SONAR_URL}'
         }
       }
+    }
+    stage('Quality Gate') {
+      steps {
+          waitForQualityGate abortPipeline: true
+
+        }
     }
     stage('Build and Push Docker Image') {
       environment {
@@ -48,13 +54,13 @@ pipeline {
     stage('Update Deployment File') {
         environment {
             GIT_REPO_NAME = "Jenkins-Sonar-ArgoCD-K8s-Pipeline"
-            GIT_USER_NAME = "sebastine-atemnkeng"
+            GIT_USER_NAME = "Sebastine-Atemnkeng"
         }
         steps {
             withCredentials([string(credentialsId: 'github', variable: 'GITHUB_TOKEN')]) {
                 sh '''
-                    git config user.email "sebastine-dev@gmail.com"
-                    git config user.name "sebastine-atemnkeng"
+                    git config user.email "sebastine.dev@gmail.com"
+                    git config user.name "Sebastine-Atemnkeng"
                     BUILD_NUMBER=${BUILD_NUMBER}
                     sed -i "s/replaceImageTag/${BUILD_NUMBER}/g" java-maven-sonar-argocd-helm-k8s/spring-boot-app-manifests/deployment.yml
                     git add java-maven-sonar-argocd-helm-k8s/spring-boot-app-manifests/deployment.yml
@@ -62,6 +68,12 @@ pipeline {
                     git push https://${GITHUB_TOKEN}@github.com/${GIT_USER_NAME}/${GIT_REPO_NAME} HEAD:main
                 '''
             }
+        }
+    }
+    post {
+        always {
+            echo 'I will always say Hello again!'
+            slackSend channel: 'cybergoat', color: COLOR_MAP[currentBuild.currentResult], message: "*${currentBuild.currentResult}:* Job ${env.JOB_NAME} build ${env.BUILD_NUMBER} \n More info at: ${env.BUILD_URL}"
         }
     }
   }
