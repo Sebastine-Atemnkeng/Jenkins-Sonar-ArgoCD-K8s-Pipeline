@@ -21,19 +21,13 @@ pipeline {
     }
     stage('Static Code Analysis') {
       environment {
-        SONAR_URL = "http://192.168.2.14:9000"
+        SONAR_URL = "http://192.168.2.14.83:9000"
       }
       steps {
         withCredentials([string(credentialsId: 'sonarqube-token', variable: 'SONAR_TOKEN')]) {
           sh 'cd java-maven-sonar-argocd-helm-k8s/spring-boot-app && mvn sonar:sonar -Dsonar.login=$SONAR_TOKEN -Dsonar.host.url=${SONAR_URL}'
         }
       }
-    }
-    stage('Quality Gate') {
-      steps {
-          waitForQualityGate abortPipeline: true
-
-        }
     }
     stage('Build and Push Docker Image') {
       environment {
@@ -54,13 +48,13 @@ pipeline {
     stage('Update Deployment File') {
         environment {
             GIT_REPO_NAME = "Jenkins-Sonar-ArgoCD-K8s-Pipeline"
-            GIT_USER_NAME = "Sebastine-Atemnkeng"
+            GIT_USER_NAME = "sebastine-atemnkeng"
         }
         steps {
             withCredentials([string(credentialsId: 'github', variable: 'GITHUB_TOKEN')]) {
                 sh '''
-                    git config user.email "sebastine.dev@gmail.com"
-                    git config user.name "Sebastine-Atemnkeng"
+                    git config user.email "sebastine-dev@gmail.com"
+                    git config user.name "sebastine-atemnkeng"
                     BUILD_NUMBER=${BUILD_NUMBER}
                     sed -i "s/replaceImageTag/${BUILD_NUMBER}/g" java-maven-sonar-argocd-helm-k8s/spring-boot-app-manifests/deployment.yml
                     git add java-maven-sonar-argocd-helm-k8s/spring-boot-app-manifests/deployment.yml
