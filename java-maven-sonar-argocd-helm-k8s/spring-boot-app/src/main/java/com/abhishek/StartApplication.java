@@ -37,9 +37,6 @@ public class StartApplication {
         model.addAttribute("msg", "Minikube Cluster, as container orchastrator for the application");
         
         model.addAttribute("msg",  "SUCCESS = OPPORTUNITY MEETS PREPARATION. KEEP LEARNING.");
-     
-        return "index";
-    }
         return "index";
     }
 
