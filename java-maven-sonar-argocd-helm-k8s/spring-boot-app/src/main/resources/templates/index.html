@@ -9,6 +9,9 @@
         .underline {
             text-decoration: underline;
         }
+        .font-size-24 {
+            font-size: 24px;
+        }
     </style>
 </head>
 <body>
@@ -27,8 +30,8 @@
             <main role="main" class="container">
                 <div class="starter-template text-center">
                     <h1 th:text="${title}">Default title.</h1>
-                    <p class="underline" style="margin-top: 2em; text-align: left;" th:text="${msg.split('\n')[0]}"></p>
-                    <ul style="list-style-type: disc; padding-left: 20px;">
+                    <p class="font-size-24 underline" style="margin-top: 2em; text-align: left;" th:text="${msg.split('\n')[0]}"></p>
+                    <ul style="list-style-type: disc; padding-left: 20px; margin-top: 1em;">
                         <li th:each="line : ${msgLines}" th:text="${line}"></li>
                     </ul>
                 </div>
