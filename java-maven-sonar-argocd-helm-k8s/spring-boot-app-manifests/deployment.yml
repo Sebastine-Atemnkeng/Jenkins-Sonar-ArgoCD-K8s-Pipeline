@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: spring-boot-app
-        image: sebastine/ultimate-cicd:120
+        image: sebastine/ultimate-cicd:121
         ports:
         - containerPort: 8080
