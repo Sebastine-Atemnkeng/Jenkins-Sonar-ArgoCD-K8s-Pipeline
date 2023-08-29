@@ -15,7 +15,7 @@ public class StartApplication {
         model.addAttribute("title", "Congratulations! You have successfully automated a Spring Boot application.");
 
         StringBuilder msgBuilder = new StringBuilder();
-        msgBuilder.append("This project was created using various open-source DevOps CI/CD tools, including:\n");
+        msgBuilder.append("This project was created using various open-source DevOps CI/CD tools:\n");
         msgBuilder.append(" - Linux distributions: Amazon Linux, Ubuntu 23.04 Server, and CentOS 9\n");
         msgBuilder.append(" - Git & GitHub for version control\n");
         msgBuilder.append(" - Jenkins with a Jenkinsfile for defining the pipeline stages and steps\n");
