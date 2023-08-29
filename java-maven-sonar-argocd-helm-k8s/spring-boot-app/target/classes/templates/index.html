@@ -8,18 +8,26 @@
 </head>
 <body>
 
-<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-    <a class="navbar-brand" href="#">Ultimate CI/CD Pipeline for Java application deployment.</a>
-</nav>
+<div class="container-fluid">
+    <div class="row">
+        <!-- Left Column -->
+        <div class="col-md-3">
+            <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+                <a class="navbar-brand" href="#">Ultimate CI/CD Pipeline for Java application deployment.</a>
+            </nav>
+        </div>
 
-<main role="main" class="container">
-    <div class="starter-template">
-        <h1 th:text="${title}">Default title.</h1>
-        <ul>
-            <li th:each="line : ${msgLines}" th:text="${line}"></li>
-        </ul>
+        <!-- Right Column -->
+        <div class="col-md-9">
+            <main role="main" class="container">
+                <div class="starter-template">
+                    <h1 th:text="${title}">Default title.</h1>
+                    <ul th:utext="${msg}"></ul>
+                </div>
+            </main>
+        </div>
     </div>
-</main>
+</div>
 
 <script data-th-src="@{/js/main.js}"></script>
 </body>
