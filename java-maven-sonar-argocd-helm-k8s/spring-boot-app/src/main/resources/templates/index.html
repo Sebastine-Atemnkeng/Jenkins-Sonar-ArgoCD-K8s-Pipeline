@@ -28,9 +28,9 @@
         <!-- Right Column -->
         <div class="col-md-9">
             <main role="main" class="container">
-                <div class="starter-template text-center">
+                <div class="starter-template">
                     <h1 th:text="${title}">Default title.</h1>
-                    <p class="font-size-24 underline" style="margin-top: 2em; text-align: left;" th:text="${msg.split('\n')[0]}"></p>
+                    <p class="font-size-24 underline" style="margin-top: 2em;" th:utext="${msg.split('\n')[0]}"></p>
                     <ul style="list-style-type: disc; padding-left: 20px; margin-top: 1em;">
                         <li th:each="line : ${msgLines}" th:text="${line}"></li>
                     </ul>
