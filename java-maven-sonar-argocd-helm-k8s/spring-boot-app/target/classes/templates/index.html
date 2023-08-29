@@ -5,6 +5,11 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"/>
     <link data-th-href="@{/css/main.css?{id}(id=${timestamp})}" rel="stylesheet">
     <title>CI/CD Master Class By Sebastine</title>
+    <style>
+        .underline {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
 
@@ -20,9 +25,12 @@
         <!-- Right Column -->
         <div class="col-md-9">
             <main role="main" class="container">
-                <div class="starter-template">
+                <div class="starter-template text-center">
                     <h1 th:text="${title}">Default title.</h1>
-                    <ul th:utext="${msg}"></ul>
+                    <p class="underline" style="margin-top: 2em; text-align: left;" th:text="${msg.split('\n')[0]}"></p>
+                    <ul style="list-style-type: disc; padding-left: 20px;">
+                        <li th:each="line : ${msgLines}" th:text="${line}"></li>
+                    </ul>
                 </div>
             </main>
         </div>
