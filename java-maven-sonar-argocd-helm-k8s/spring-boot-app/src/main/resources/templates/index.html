@@ -1,25 +1,256 @@
-<!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE HTML>
+<html>
 <head>
+<!-- Required meta tags -->
     <meta charset="utf-8">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"/>
-    <link data-th-href="@{/css/main.css?{id}(id=${timestamp})}" rel="stylesheet">
-    <title>CI/CD Master Class By Sebastine</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/main.css">
+<link rel=="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js</script>
+<script src="script/script.js"></script>
+<title>Personal Website</title>
 </head>
 <body>
-
-<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-    <a class="navbar-brand" href="#">Ultimate CI/CD Pipeline for Java application deployment.</a>
+	<!-- Header -->
+	<nav class="navbar">
+		<div class="inner-width">
+			<img src="#" class="logo"></img>
+			<button class="menu-toggler">
+			<span></span>
+			<span></span>
+			<span></span>
+		</button>
+		<div class="navbar-menu">
+			<a href="#home">Home</a>
+			<a href="#about">About</a>
+			<a href="#projects">Projects</a>
+			<a href="#education">Education</a>
+			<a href="#certifications">certifications</a>
+			<a href="#contact">Contact</a>
+			
+		</div>
+	</div>
 </nav>
+	<section id="home" style="background-image:url('#');">
+	<div class="inner-width">
+		<div class="content">
+			<h1>Hi I'm</h1>
+			<div class="sm">
+				<a href="#"><ion-icon name="logo-facebook"></ion-icon></a>
+				<a href="#"><ion-icon name="logo-instagram"></ion-icon></a>
+				<a href="#"><ion-icon name="logo-twitter"></ion-icon></a>
+				<a href="#"><ion-icon name="logo-linkedin"></ion-icon></a>		
+			</div>
+			<div class="buttons">
+				<a href="#">Contact</a>
+				<a href="#"> Download CV</a>
+			</div>
+		</div>
+	</div>
+</section>
+		<section id="about">
+			<div class="inner-width">
+				<h1 class="section-title">About</h1>
+				<div class="about-content">
+					<div class="about-text">
+					<h2>Hi, I am Sebastine.</h2>
+					<h3>
+						<span>A Cloud DevOps Engineer,</span>
+						<span>AWS Cloud Expert</span>
+						<span>and an Aspiring AWS Cloud Security Engineer.</span>
+					</h3>
+					<p>
+					Over 5+ years of experience in DevOps, Cloud & SDLC including analysis, design, coding, scripting, testing, automation, version control, documentation, support.
+					</p>
+				</div>
+				</div>
+			<div class="skills">
+			<div class="skill">
+				<div class="skill-info">
+					<h3>
+					<span>Professional Skills</span>
+					</h3>
 
-<main role="main" class="container">
-    <div class="starter-template">
-        <h1 th:text="${title}">Default title.</h1>
-        <p th:utext="${msgFirstLine}" style="font-size: 18px; text-decoration: underline;"></p>
-        <p th:each="message : ${msgLines}" th:utext="${message}" style="font-size: 16px; margin-top: 10px;"></p>
-    </div>
-</main>
+				</div>
+				<div class="skill-bar html"></div>
+			</div>
+			
+			<div class="skill">
+				<div class="skill-info">
+					<span>AWS Cloud</span>
+				</div>
+				<div class="skill-bar css"></div>
+			</div>
+			
+			<div class="skill">
+				<div class="skill-info">
+					<span>Operating Systems: Ubuntu, Redhat, CentOs, Kali Linux, Parrot, Windows, Mac Os</span>
+				</div>
+			</div>
+		
+			<div class="skill">
+				<div class="skill-info">
+					<span>Programming: Python, Bash Shell Scripting, SQl</span>
+				</div>
+			</div>
+			
+			<div class="skill">
+				<div class="skill-info">
+					<span>Containarization: Docker, Kubernetes(ECS & EKS)</span>
+				</div>
+			</div>
+		
+			<div class="skill">
+				<div class="skill-info">
+					<span>Virtualization: VirtualBox, Vmware and Proxmox</span>
+				</div>
+			</div>
+			
+			<div class="skill">
+				<div class="skill-info">
+					<span>IAC: Terraform & Ansible</span>
+				</div>
+			</div>
 
-<script data-th-src="@{/js/main.js}"></script>
+			<div class="skill">
+				<div class="skill-info">
+					<span>Repository Manager: Nexus, ECR and DockerHub</span>
+				</div>
+			</div>
+
+			<div class="skill">
+				<div class="skill-info">
+					<span>SCM: Git, GitHub, BitBucket, AWS CodeCommit</span>
+				</div>
+			</div>
+
+			<div class="skill">
+				<div class="skill-info">
+					<span>CI tool: Jenkins, Maven and AWS CodePipeline</span>
+				</div>
+			</div>
+
+			<div class="skill">
+				<div class="skill-info">
+					<span>SAST: SonarQube</span>
+				</div>
+			</div>
+
+			<div class="skill">
+				<div class="skill-info">
+					<span>Monitoring: Prometheus & Grafana</span>
+				</div>
+			</div>
+
+		</div>
+			</div>
+		</section>
+	<section id="Projectss" class="Projectsbar">
+		<div class="inner-width">
+			<h1 class="section-title">Projects</h1>
+			<div class="Projectss">
+			<div class="Projects">
+			<ion-icon name="brush-outline"></ion-icon>
+			<h4>Design</h4>
+			<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+			</div>
+			<div class="Projects">
+			<ion-icon name="logo-html5"></ion-icon>
+			<h4>Web Programming</h4>
+			<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+			</div>
+			<div class="Projects">
+			<ion-icon name="keypad-outline"></ion-icon>
+			<h4>UI Design</h4>
+			<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+			</div>
+			<div class="Projects">
+			<ion-icon name="server-outline"></ion-icon>
+			<h4>Database Management</h4>
+			<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+			</div>
+			<div class="Projects">
+			<ion-icon name="logo-python"></ion-icon>
+			<h4>Python Developer</h4>
+			<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+			</div>
+		</div>
+	</section>
+	
+	<section id="education">
+		<div class="inner-width">
+		<h1 class="section-title">Education</h1>
+		<div class="time-line">
+			<div class="block">
+				<p>B.Eng In Electrical Engineering</p>
+			</div>
+		</div>
+	</div>
+
+	<section id="education">
+		<div class="inner-width">
+		<h1 class="section-title">Education</h1>
+		<div class="time-line">
+			<div class="block">
+				<p>AWS Certified Solutions Architect - Associate</p>
+			</div>
+			<div class="block">
+				<p>AWS Certified DevOps Engineer - Professional</p>
+			</div>
+			<div class="block">
+				<p>AWS Security Specialty - In Progress</p>
+			</div>
+		</div>
+	</div>
+
+</section>
+	<section id="contact">
+		<div class="inner-width">
+		<h1 class="section-title">Contact</h1>
+		<div class="contact-info">
+			<div class="item">
+			<ion-icon name="phone-portrait-outline"></ion-icon>
+			+00 555 555 555
+		</div>
+		<div class="item">
+			<ion-icon name="pencil-outline"></ion-icon>
+			email@adress.com
+		</div>
+		<div class="item">
+			<ion-icon name="location-outline"></ion-icon>
+			United states
+		</div>
+		</div>
+		
+	<form action="" method="post" class="contact-form" >
+		<input type="text" class="name"  placeholder="Your Full Name" required>
+		<input type="text" class="email" placeholder="Email" required>
+		<input type="text" class="subject"  placeholder="Subject" required>
+		<textarea class="message" placeholder="Message" required></textarea>
+		<input type="submit" value="Send Message" class="btn">
+	
+	</form>
+	</div>
+	</section>
+<footer>
+	<div class="inner-width">
+	<div class="copyright">
+	&copy;2020 || Designed by EP
+	</div>
+		<div class="sm">
+			<a href="#"><ion-icon name="logo-facebook"></ion-icon></a>
+			<a href="#"><ion-icon name="logo-instagram"></ion-icon></a>
+			<a href="#"><ion-icon name="logo-linkedin"></ion-icon></a>
+			<a href="#"><ion-icon name="logo-youtube"></ion-icon></a>
+
+		
+		</div>
+	</div>
+</footer>
+<button class="goTop">
+<ion-icon name="chevron-up-circle-outline"></ion-icon></button>
+	<script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
 </body>
 </html>
