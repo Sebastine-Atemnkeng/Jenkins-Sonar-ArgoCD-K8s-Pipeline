@@ -12,36 +12,27 @@ public class StartApplication {
 
     @GetMapping("/")
     public String index(final Model model) {
-        model.addAttribute("title", "Congratulations!! You have successfully automated a sprint boot application.");
+        model.addAttribute("title", "Congratulations! You have successfully automated a Spring Boot application.");
         
-        model.addAttribute("msg", "This project was realized with the following opensource DevOps CI/CD tools,");
-        
-        model.addAttribute("msg", "Linux distros: Amazon-linux, Ubuntu-23.04-server, and CentOs-9");
+        StringBuilder msgBuilder = new StringBuilder();
+        msgBuilder.append("This project was created using various open-source DevOps CI/CD tools, including:\n");
+        msgBuilder.append(" - Linux distributions: Amazon Linux, Ubuntu 23.04 Server, and CentOS 9\n");
+        msgBuilder.append(" - Git & GitHub for version control\n");
+        msgBuilder.append(" - Jenkins with a Jenkinsfile for defining the pipeline stages and steps\n");
+        msgBuilder.append(" - Maven for build and compilation\n");
+        msgBuilder.append(" - SonarQube & Quality Gates for Static Application Security Testing (SAST) and code quality checks\n");
+        msgBuilder.append(" - Docker & DockerHub for packaging and artifact management\n");
+        msgBuilder.append(" - Bash shell scripting to update the GitHub deployment repository with the latest Build Number\n");
+        msgBuilder.append(" - Slack integration with Jenkins to notify the development team about the build status\n");
+        msgBuilder.append(" - ArgoCD controller for periodic scanning of the GitHub Deployment repository for updates\n");
+        msgBuilder.append(" - Minikube Cluster as a container orchestrator for the application\n\n");
+        msgBuilder.append("SUCCESS = When Opportunity Meets Preparation. Keep Learning.");
 
-        model.addAttribute("msg", "Git & GitHub");
-
-        model.addAttribute("msg", "Jenkins: Jenkinfile for the Pipleline code with the various stages and step");
-
-        model.addAttribute("msg", "Maven: For the build and compiler tool");
-
-        model.addAttribute("msg", "SonarQube & QualityGates: Static Application Security Testing, SAST and code quality check");
-
-        model.addAttribute("msg", "Docker & DokcerHub: Package Manager and Artifactory");
-
-        model.addAttribute("msg", "Bash shell script: To update the deployment the GitHub deployment repo with the latest Build Number");
-
-        model.addAttribute("msg", "Slack Integration with jenkins, to update the dev team of the current build status");
-
-        model.addAttribute("msg", "ArgoCD controller to periodically scan the GitHub Deployment repo for any new updates");
-
-        model.addAttribute("msg", "Minikube Cluster, as container orchastrator for the application");
-        
-        model.addAttribute("msg",  "SUCCESS = OPPORTUNITY MEETS PREPARATION. KEEP LEARNING.");
+        model.addAttribute("msg", msgBuilder.toString());
         return "index";
     }
 
     public static void main(String[] args) {
         SpringApplication.run(StartApplication.class, args);
     }
-
 }
