@@ -1,7 +1,104 @@
-body {
-  padding-top: 5rem;
+/* Reset CSS */
+* {
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  font-family: 'Montserrat', sans-serif;
+  box-sizing: border-box;
 }
-.starter-template {
-  padding: 3rem 1.5rem;
-  text-align: center;
+
+/* Global Styles */
+html {
+  scroll-behavior: smooth;
 }
+
+::selection {
+  background-color: #ffcd00;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  background-color: #ffcd00;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #2f2f2f;
+}
+
+/* Navbar Styles */
+.navbar {
+  position: fixed;
+  background-color: transparent;
+  width: 100%;
+  padding: 30px 0;
+  z-index: 999;
+  transition: .3s linear;
+}
+
+.inner-width {
+  max-width: 1300px;
+  margin: auto;
+  padding: 0 40px;
+}
+
+.navbar .inner-width {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  width: 80px;
+  background-size: contain;
+}
+
+.menu-toggler {
+  background: none;
+  width: 30px;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  outline: none;
+  z-index: 999;
+  display: none;
+}
+
+.menu-toggler span {
+  display: block;
+  height: 3px;
+  background-color: black;
+  margin: 6px 0;
+  position: relative;
+  transition: .3s linear;
+}
+
+.navbar-menu a {
+  color: #ffcd00;
+  font-size: 15px;
+  font-weight: 500;
+  margin-left: 30px;
+  transition: .2s linear;
+}
+
+.navbar-menu a:hover {
+  color: white !important;
+}
+
+.sticky {
+  background-color: #ffcd00;
+  padding: 18px 0;
+}
+
+.sticky .navbar-menu a {
+  color: black;
+}
+
+.sticky .menu-toggler span {
+  background-color: black;
+}
+
+/* Other Styles... */
+/* Please paste the rest of your CSS here */
+
+/* Media Queries... */
+/* Please add your media queries here */
