@@ -28,8 +28,6 @@ public class StartApplication {
 
         public String getHomePage(Model model) {
 
-            model.addAttribute("title", "Congratulations!! You have successfully automated a Spring Boot application.");
-
             return "index"; // This should match the name of your HTML file (without the extension)
 
         }
