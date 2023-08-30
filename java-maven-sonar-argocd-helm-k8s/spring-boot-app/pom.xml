@@ -40,6 +40,22 @@
             <scope>test</scope>
         </dependency>
 
+        <!-- JUnit Jupiter for testing -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>5.8.1</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- Mockito for testing -->
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <version>3.12.4</version>
+            <scope>test</scope>
+        </dependency>
+
         <!-- debugging -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -70,6 +86,5 @@
 
         </plugins>
     </build>
-
 
 </project>
