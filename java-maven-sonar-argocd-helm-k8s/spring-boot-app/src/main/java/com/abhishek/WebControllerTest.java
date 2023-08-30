@@ -1,25 +1,39 @@
-import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
+package com.abhishek; // Make sure this package path matches your project structure
+
+import org.springframework.boot.SpringApplication;
+
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import org.springframework.stereotype.Controller;
+
 import org.springframework.ui.Model;
 
-import static org.mockito.Mockito.*;
+import org.springframework.web.bind.annotation.GetMapping;
 
-public class WebControllerTest {
+@SpringBootApplication
 
-    @Mock
-    private Model mockModel;
+public class StartApplication {
 
-    @Test
-    public void testGetHomePage() {
-        WebController webController = new WebController();
+    public static void main(String[] args) {
 
-        String result = webController.getHomePage(mockModel);
+        SpringApplication.run(StartApplication.class, args);
 
-        // Here, you can add assertions to verify the behavior of the method
-        // For example, you might verify that the title attribute is added to the model
-        verify(mockModel).addAttribute(eq("title"), anyString());
-
-        // You might also verify the returned value, if applicable
-        // assertEquals("index", result);
     }
+
+    @Controller
+
+    public class WebController {
+
+        @GetMapping("/")
+
+        public String getHomePage(Model model) {
+
+            model.addAttribute("title", "Congratulations!! You have successfully automated a Spring Boot application.");
+
+            return "index"; // This should match the name of your HTML file (without the extension)
+
+        }
+
+    }
+
 }
